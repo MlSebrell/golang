@@ -32,9 +32,30 @@ func main() {
 	new values
 
 	Note that we need to accept a return value
-	from appen as we may get a new slice value. */ 
+	from append as we may get a new slice value. */ 
 
 	s = append(s, "d")
 	s = append(s, "e", "f")
 	fmt.Println("apd:", s)
+	
+	// slices can also be `copy`d. here we create an
+	// empty slice `c` of the same length as `s` and 
+	// copy it into `c` from `s` . 
+	c := make([]string, len(s))
+	copy(c, s)
+	fmt.Println("cpy:", c)
+	
+	//slices support a "slice" operator with the syntax
+	// `slice[low:high]`. for example, this gets a slice
+	// of the elements `s[2]`. `s[3]`, and `s[4]`.
+	l := s[2:5]
+	fmt.Println("sl1:", l)
+	
+	// This slices up to (but excluding) `s[5]`.
+	l = s[:5]
+	fmt.Println("sl2:", l)
+	
+	// and this slices up from (and including) `s[2]`.
+	l = s[2:]
+	fmt.Println
 	
